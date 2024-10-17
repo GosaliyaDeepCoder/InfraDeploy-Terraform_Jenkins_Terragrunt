@@ -55,10 +55,12 @@ pipeline {
         stage('Tflint Testing') {
             steps {
                 script {
+                    /*
                     sh ' mkdir -p $HOME/.local/bin '
                     sh ' curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash '
                     sh ' sudo mv /tmp/tflint* /home/jenkins/.local/bin/tflint '
                     sh ' export PATH=$PATH:$HOME/.local/bin '
+                    */
                     dir('modules') {
                         sh ' tflint --init --recursive'
                         sh ' tflint --module --recursive --force '
