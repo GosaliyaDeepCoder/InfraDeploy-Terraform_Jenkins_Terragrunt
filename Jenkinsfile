@@ -55,7 +55,8 @@ pipeline {
         stage('Tflint Testing') {
             steps {
                 script {
-                    sh ' sudo curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash '
+                    sh ' curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash '
+                    sh ' export PATH=$PATH:$HOME/.local/bin '
                     dir('modules') {
                         sh ' tflint --init --recursive'
                         sh ' tflint --module --recursive --force '
