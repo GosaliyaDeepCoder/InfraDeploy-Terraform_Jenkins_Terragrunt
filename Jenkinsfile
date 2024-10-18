@@ -11,7 +11,7 @@ pipeline {
         terraform "terraform"
     }
     environment {
-        ARM_ACCESS_KEY = credentials('BACKEND_ACCESS_KEY')
+        ARM_ACCESS_KEY = credentials('ARM_ACCESS_KEY')
     }
     stages {
         stage('Checkout') {
