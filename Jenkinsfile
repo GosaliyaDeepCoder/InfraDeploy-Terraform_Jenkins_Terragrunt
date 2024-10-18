@@ -21,13 +21,25 @@ pipeline {
                 }
             }
         }
-        stage('Azure login'){
+        stage('Azure login') {
+            steps {
+                withCredentials([azureServicePrincipal(credentialsId: 'Azurecredentials_SP',
+                                                    subscriptionIdVariable: 'AZURE_SUBSCRIPTION_ID',
+                                                    clientIdVariable: 'AZURE_CLIENT_ID',
+                                                    clientSecretVariable: 'AZURE_CLIENT_SECRET',
+                                                    tenantIdVariable: 'AZURE_TENANT_ID')]) {
+                    sh ' az login --service-principal -u ${env.AZURE_CLIENT_ID} -p ${env.AZURE_CLIENT_SECRET} --tenant ${env.AZURE_TENANT_ID}'   
+                }
+            }
+        }
+
+        /*stage('Azure login'){
             steps{
                 withCredentials([azureServicePrincipal('Azurecredentials_SP')]) {
                     sh 'az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} -t ${AZURE_TENANT_ID}'
                 }
             }
-        }
+        }*/
         stage("Generate Documentation") {
             steps {
                 script {
