@@ -28,7 +28,7 @@ pipeline {
                                                     clientIdVariable: 'AZURE_CLIENT_ID',
                                                     clientSecretVariable: 'AZURE_CLIENT_SECRET',
                                                     tenantIdVariable: 'AZURE_TENANT_ID')]) {
-                    sh ' az login --service-principal -u ${env.AZURE_CLIENT_ID} -p ${env.AZURE_CLIENT_SECRET} --tenant ${env.AZURE_TENANT_ID}'   
+                    sh ' #!/bin/bash az login --service-principal -u ${env.AZURE_CLIENT_ID} -p ${env.AZURE_CLIENT_SECRET} --tenant ${env.AZURE_TENANT_ID}'   
                 }
             }
         }
