@@ -21,25 +21,31 @@ pipeline {
                 }
             }
         }
-        /*stage('Azure login') {
+        stage('Set Azure Credentials') {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: 'Azurecredentials_SP',
-                                                    subscriptionIdVariable: 'AZURE_SUBSCRIPTION_ID',
-                                                    clientIdVariable: 'AZURE_CLIENT_ID',
-                                                    clientSecretVariable: 'AZURE_CLIENT_SECRET',
-                                                    tenantIdVariable: 'AZURE_TENANT_ID')]) {
-                    sh " az login --service-principal -u ${env.AZURE_CLIENT_ID} -p ${env.AZURE_CLIENT_SECRET} --tenant ${env.AZURE_TENANT_ID} "   
+                                                       subscriptionIdVariable: 'AZURE_SUBSCRIPTION_ID',
+                                                       clientIdVariable: 'AZURE_CLIENT_ID',
+                                                       clientSecretVariable: 'AZURE_CLIENT_SECRET',
+                                                       tenantIdVariable: 'AZURE_TENANT_ID')]) {
+                    // Set the required environment variables for Terraform
+                    sh """
+                        export ARM_CLIENT_ID=${env.AZURE_CLIENT_ID}
+                        export ARM_CLIENT_SECRET=${env.AZURE_CLIENT_SECRET}
+                        export ARM_TENANT_ID=${env.AZURE_TENANT_ID}
+                        export ARM_SUBSCRIPTION_ID=${env.AZURE_SUBSCRIPTION_ID}
+                    """
                 }
             }
-        }*/
+        }
 
-        stage('Azure login'){
+        /*stage('Azure login'){
             steps{
                 withCredentials([azureServicePrincipal('Azurecredentials_SP')]) {
                     sh "az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} -t ${AZURE_TENANT_ID}"
                 }
             }
-        }
+        }*/
         stage("Generate Documentation") {
             steps {
                 script {
