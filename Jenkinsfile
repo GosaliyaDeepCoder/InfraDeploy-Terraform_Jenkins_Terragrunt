@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        /*stage('Set Azure Credentials') {
+        stage('Set Azure Credentials') {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: 'Azurecredentials_SP',
                                                        subscriptionIdVariable: 'AZURE_SUBSCRIPTION_ID',
@@ -37,14 +37,15 @@ pipeline {
                     """
                 }
             }
-        }*/
-        stage('Azure login'){
+        }
+
+        /*stage('Azure login'){
             steps{
                 withCredentials([azureServicePrincipal('Azurecredentials_SP')]) {
-                    sh "az login --service-principal -u $CLIENT_ID -p $CLIENT_SECRET --tenant $TENANT_ID"
+                    sh "az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} -t ${AZURE_TENANT_ID}"
                 }
             }
-        }
+        }*/
         stage("Generate Documentation") {
             steps {
                 script {
