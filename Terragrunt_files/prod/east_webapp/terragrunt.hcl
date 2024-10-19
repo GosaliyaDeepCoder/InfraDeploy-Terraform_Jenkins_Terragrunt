@@ -8,7 +8,7 @@ dependency "east_rg" {
     config_path = "../east_rg"
     mock_outputs = {
       rg_name  = "east_rg_prod_mock"
-      location = "East US"
+      location = "East US 2"
     }
 }
 

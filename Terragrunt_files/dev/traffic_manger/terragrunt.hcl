@@ -22,7 +22,7 @@ dependency "traffic_rg" {
     config_path = "../traffic_manager_rg"
     mock_outputs = {
       rg_name  = "traffic_rg_dev_mock"
-      location = "East US"
+      location = "East US 2"
     }
 }
 inputs = {

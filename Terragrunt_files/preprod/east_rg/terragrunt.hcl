@@ -7,6 +7,6 @@ terraform {
 
 inputs = {
   rg_name              = "east_rg-preprod"
-  location             = "East US"
+  location             = "East US 2"
 }
 
