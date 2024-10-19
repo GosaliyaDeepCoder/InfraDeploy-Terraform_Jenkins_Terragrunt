@@ -35,5 +35,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_public_ip_id"></a> [public\_ip\_id](#output\_public\_ip\_id) | outputs.tf |
+| <a name="output_public_ip_id"></a> [public\_ip\_id](#output\_public\_ip\_id) | n/a |
+| <a name="output_subnet_id"></a> [subnet\_id](#output\_subnet\_id) | outputs.tf |
 <!-- END_TF_DOCS -->
