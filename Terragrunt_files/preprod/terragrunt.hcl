@@ -32,7 +32,7 @@ terraform {
   backend "azurerm" {
       resource_group_name  = "tfstate"
       storage_account_name = "tfstate20436"
-      container_name       = "tfstate"
+      container_name       = "tfstate1"
       key                  = "preprod/${path_relative_to_include()}/terraform.tfstate"
   }
 }
