@@ -18,6 +18,6 @@ inputs = {
   app_service_plan_name = "EastServicePlan-dev"
   app_service_name      = "EastWebApp-dev"
   repo_url              = "https://github.com/GosaliyaDeepCoder/WebApplication2.git"
-  branch                = "master"
+  branch                = "main"
 }
 

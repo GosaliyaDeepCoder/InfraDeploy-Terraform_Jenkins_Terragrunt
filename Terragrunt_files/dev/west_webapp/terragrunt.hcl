@@ -19,6 +19,6 @@ inputs = {
   app_service_plan_name = "WestServicePlan-dev"
   app_service_name      = "WestWebApp-dev"
   repo_url              = "https://github.com/GosaliyaDeepCoder/WebApplication.git"
-  branch                = "master"
+  branch                = "main"
 }
 
